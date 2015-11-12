@@ -82,7 +82,7 @@ var Engine = function () {
         return true;
     };
 
-    this.selectBilleCoin = function(color) {
+    this.selectPieceCoin = function(color) {
         if(plateau[0][0] == color || plateau[0][5] == color || plateau[5][0] == color || plateau[5][5] == color) {
             return true;
         }
