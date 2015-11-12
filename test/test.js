@@ -1,6 +1,7 @@
 'use strict';
 
 var PalettoTestCase = TestCase("PalettoTestCase");
-
-PalettoTestCase.prototype.testStory1 = function () {
+var plateau = new Engine();
+PalettoTestCase.prototype.testHistoire1 = function () {
+    assertTrue(plateau.initPlateau());
 };
