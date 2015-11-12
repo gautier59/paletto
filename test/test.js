@@ -11,5 +11,7 @@ PalettoTestCase.prototype.testHistoire2 = function () {
 };
 
 PalettoTestCase.prototype.testHistoire3 = function () {
-    assertTrue(plateau.selectBilleCoin("jaune"));
+    assertTrue(plateau.selectPiece("a6","joueur1") == "jaune");
+    assertTrue(plateau.getPieces() == 35);
+    assertTrue(plateau.getNbPieceJoueur1() == 1)
 };

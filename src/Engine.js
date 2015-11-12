@@ -11,8 +11,13 @@ var Engine = function () {
 // private attributes and methods
     var plateau;
     var couleur;
+    var nbPieces = 36;
+    var nbPieceJoueur1 = 0;
+    var joueur1;
+    var joueur2;
 // public methods
     this.initPlateau = function () {
+        this.initJoueur();
         plateau = new Array(6);
         for (var i = 0; i < plateau.length; i++) {
             plateau[i] = new Array(6);
@@ -88,4 +93,44 @@ var Engine = function () {
         }
         return false;
     };
+
+    this.selectPiece = function (positionPiece, joueur) {
+        var x = positionPiece.charCodeAt(0) - 97;
+        var y = positionPiece.charCodeAt(1) - 49;
+        couleur = plateau[y][x];
+        plateau[y][x] = undefined;
+        nbPieces--;
+        if (joueur == "joueur1") {
+            joueur1[y][x] = couleur;
+        } else {
+            joueur2[y][x] = couleur;
+        }
+        return couleur;
+    };
+
+    this.getPieces = function () {
+        return nbPieces;
+    };
+
+    this.getNbPieceJoueur1 = function() {
+        for (var i = 0; i < joueur1.length; i++) {
+            for (var j = 0; j < joueur1.length; j++) {
+                if (joueur1[i][j] != undefined) {
+                    nbPieceJoueur1++;
+                }
+            }
+        }
+        return nbPieceJoueur1;
+    };
+
+    this.initJoueur = function() {
+        joueur1 = new Array(6);
+        for (var i = 0; i < joueur1.length; i++) {
+            joueur1[i] = new Array(6);
+        }
+        joueur2 = new Array(6);
+        for (var i = 0; i < joueur2.length; i++) {
+            joueur2[i] = new Array(6);
+        }
+    }
 };
