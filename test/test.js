@@ -7,5 +7,5 @@ PalettoTestCase.prototype.testHistoire1 = function () {
 };
 
 PalettoTestCase.prototype.testHistoire2 = function () {
-    assertTrue(plateau.selectBille("jaune"));
+    assertTrue(plateau.selectBilleCoin("jaune"));
 };
