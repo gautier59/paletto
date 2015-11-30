@@ -18,11 +18,11 @@ PalettoTestCase.prototype.testHistoire3 = function () {
 
 PalettoTestCase.prototype.testHistoire4 = function () {
     assertTrue(plateau.selectPiece("a1", "joueur2") == "noir");
-    assertTrue(plateau.verifierVoisins("a1"));
+    assertTrue(plateau.verifierVoisins("a1") <=2);
     assertTrue(plateau.selectPiece("f6", "joueur2") == "noir");
     assertTrue(plateau.verifierVoisins("f6"));
 };
 
 PalettoTestCase.prototype.testHistoire5 = function () {
-    assertTrue(plateau.verifPieceAutorise("c3"));
+    assertTrue(plateau.verifPieceAutorise("c3") == false);
 };

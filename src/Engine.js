@@ -153,4 +153,46 @@ var Engine = function () {
         console.log((cpt));
         return cpt <= 2;
     };
+
+    /*this.verifPieceAutorise = function(position){
+        var plateau2 = new Array(6);
+        plateau2[0] = "d1";
+        plateau2[1] = "f1";
+        plateau2[2] = "e3";
+        plateau2[3] = "a4";
+        plateau2[4] = "b5";
+        plateau2[5] = "c6";
+        for (var i = 0; i < plateau2.length; i++) {
+            if(plateau2[i] === position) {
+                return true;
+            }
+        }
+        return false;
+    }*/
+
+    this.verifPieceAutorise = function(position){
+        var y = position.charCodeAt(1) - 49;
+        var x = position.charCodeAt(0) - 97;
+        if(this.verifierVoisins(position) <=2) {
+            if(x !=0 && x != plateau.length - 1 && plateau[x - 1][y] != "" && plateau[x + 1][y] != "") {
+                return false;
+            }
+            if(y !=0 && y != plateau.length - 1 && plateau[x][y - 1] != "" && plateau[x][y + 1] != "") {
+                return false;
+            }
+            if(y !=0 && x != plateau.length - 1 && plateau[x + 1][y] != "" && plateau[x][y - 1] != "" && plateau[x + 1][y - 1] != ""){
+                return false;
+            }
+            if(y != plateau.length -1 && x != plateau.length - 1 && plateau[x + 1][y] != "" && plateau[x][y + 1] != "" && plateau[x + 1][y + 1] != "") {
+                return false;
+            }
+            if(y != plateau.length -1 && x != 0 && plateau[x - 1][y] != "" && plateau[x][y + 1] != "" && plateau[x - 1][y + 1] != "") {
+                return false;
+            }
+            if(y != 0 && x != 0 && plateau[x - 1][y] != "" && plateau[x][y - 1] != "" && plateau[x - 1][y - 1] != "") {
+                return false;
+            }
+            return true;
+        }
+    }
 };
