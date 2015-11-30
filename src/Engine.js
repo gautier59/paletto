@@ -133,4 +133,24 @@ var Engine = function () {
             joueur2[i] = new Array(6);
         }
     }
+
+    this.verifierVoisins = function(position){
+        var cpt = 0;
+        var y = position.charCodeAt(1) - 49;
+        var x = position.charCodeAt(0) - 97;
+        if(x != 0 && plateau[x-1][y] != "") {
+            cpt++;
+        }
+        if(x != plateau.length - 1 && plateau[x+1][y] != "") {
+            cpt++;
+        }
+        if(y != 0 && plateau[x][y-1] != "") {
+            cpt++;
+        }
+        if(y != plateau.length - 1 && plateau[x][y+1] != "") {
+            cpt++;
+        }
+        console.log((cpt));
+        return cpt <= 2;
+    };
 };
