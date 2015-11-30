@@ -15,3 +15,10 @@ PalettoTestCase.prototype.testHistoire3 = function () {
     assertTrue(plateau.getPieces() == 35);
     assertTrue(plateau.getNbPieceJoueur1() == 1)
 };
+
+PalettoTestCase.prototype.testHistoire4 = function () {
+    assertTrue(plateau.selectPiece("a1", "joueur2") == "noir");
+    assertTrue(plateau.verifierVoisins("a1"));
+    assertTrue(plateau.selectPiece("f6", "joueur2") == "noir");
+    assertTrue(plateau.verifierVoisins("f6"));
+};
