@@ -8,6 +8,7 @@ var Engine = function () {
     const COLOR_BLUE = "bleu";
     const COLOR_RED = "rouge";
     const COLOR_YELLOW = "jaune";
+
 // private attributes and methods
     var plateau;
     var couleur;
@@ -15,6 +16,18 @@ var Engine = function () {
     var nbPieceJoueur1 = 0;
     var joueur1;
     var joueur2;
+    var noirJ1 = 0;
+    var vertJ1 = 0;
+    var blancJ1 = 0;
+    var bleuJ1 = 0;
+    var rougeJ1 = 0;
+    var jauneJ1 = 0;
+    var noirJ2 = 0;
+    var vertJ2 = 0;
+    var blancJ2 = 0;
+    var bleuJ2 = 0;
+    var rougeJ2 = 0;
+    var jauneJ2 = 0;
 // public methods
     this.initPlateau = function () {
         this.initJoueur();
@@ -102,8 +115,34 @@ var Engine = function () {
         nbPieces--;
         if (joueur == "joueur1") {
             joueur1[y][x] = couleur;
+            if(couleur == COLOR_BLACK) {
+                noirJ1++;
+            }else if(couleur == COLOR_GREEN) {
+                vertJ1++;
+            }else if(couleur == COLOR_WHITE){
+                blancJ1++;
+            }else if(couleur == COLOR_BLUE) {
+                bleuJ1++;
+            }else if(couleur == COLOR_RED) {
+                rougeJ1++;
+            }else if(couleur == COLOR_YELLOW) {
+                jauneJ1++;
+            }
         } else {
-            joueur2[y][x] = couleur;
+            joueur2[y][x] = couleur
+            if(couleur == COLOR_BLACK) {
+                noirJ2++;
+            }else if(couleur == COLOR_GREEN) {
+                vertJ2++;
+            }else if(couleur == COLOR_WHITE){
+                blancJ2++;
+            }else if(couleur == COLOR_BLUE) {
+                bleuJ2++;
+            }else if(couleur == COLOR_RED) {
+                rougeJ2++;
+            }else if(couleur == COLOR_YELLOW) {
+                jauneJ2++;
+            }
         }
         return couleur;
     };
@@ -150,7 +189,6 @@ var Engine = function () {
         if(y != plateau.length - 1 && plateau[x][y+1] != "") {
             cpt++;
         }
-        console.log((cpt));
         return cpt <= 2;
     };
 
@@ -169,6 +207,15 @@ var Engine = function () {
         }
         return false;
     }*/
+
+    this.verifGagner = function(){
+        if(noirJ1 == 6 || vertJ1 == 6 || blancJ1 == 6 || bleuJ1 == 6 || rougeJ1 == 6 || jauneJ1 == 6) {
+            return "joueur1";
+        }
+        if(noirJ2 == 6 || vertJ2 == 6 || blancJ2 == 6 || bleuJ2 == 6 || rougeJ2 == 6 || jauneJ2 == 6) {
+            return "joueur2";
+        }
+    };
 
     this.verifPieceAutorise = function(position){
         var y = position.charCodeAt(1) - 49;
