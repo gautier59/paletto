@@ -22,3 +22,7 @@ PalettoTestCase.prototype.testHistoire4 = function () {
     assertTrue(plateau.selectPiece("f6", "joueur2") == "noir");
     assertTrue(plateau.verifierVoisins("f6"));
 };
+
+PalettoTestCase.prototype.testHistoire5 = function () {
+    assertTrue(plateau.verifPieceAutorise("c3"));
+};
